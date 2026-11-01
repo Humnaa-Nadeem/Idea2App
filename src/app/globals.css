@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #F8FAFC;
+  --color-foreground: #0F172A;
+
+  --color-primary-text: #0F172A;
+  --color-secondary-text: #64748B;
+  
+  --color-primary: #16A34A;
+  --color-primary-dark: #166534;
+  
+  --color-border-color: #E2E8F0;
+  --color-card-bg: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-foreground)] font-sans antialiased selection:bg-primary/20 selection:text-primary-dark;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animate-in 0.3s ease-out;
+  }
+  @keyframes animate-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
